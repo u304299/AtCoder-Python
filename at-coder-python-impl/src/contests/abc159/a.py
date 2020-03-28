@@ -1,3 +1,9 @@
+# -*- coding:utf-8 -*-
+"""
+A - The Number of Even Pairs.
+"""
+__author__ = "09x3086"
+
 N, M = (int(x) for x in input().split())
 myList = []
 num = 0
