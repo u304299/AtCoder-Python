@@ -14,13 +14,13 @@ p = 998244353
 
 for i in range(N[0] - 1):
     for j in range(N[1] - 1):
-        dp[i + 1][j][0] = (dp[i + 1][j][0] + dp[i][j][0]) % p
-        dp[i + 1][j][1] = (dp[i + 1][j][1] + dp[i][j][1]) % p
-        dp[i + 1][j][2] = (dp[i + 1][j][2] + dp[i][j][2]) % p
+        dp[0][i + 1][j] = (dp[0][i + 1][j] + dp[0][i][j]) % p
+        dp[1][i + 1][j] = (dp[1][i + 1][j] + dp[1][i][j]) % p
+        dp[2][i + 1][j] = (dp[2][i + 1][j] + dp[2][i][j]) % p
         if j + M[i] <= N[1]:
-            dp[i + 1][j + M[i]][1] = (dp[i + 1][j + M[i]][1] + dp[i][j][0] +
-                                      dp[i][j][1]) % p
-            dp[i + 1][j + M[i]][2] = (dp[i + 1][j + M[i]][1] + dp[i][j][0] +
-                                      dp[i][j][1]) % p
+            dp[1][i + 1][j + M[i]] = (dp[1][i + 1][j + M[i]] + dp[0][i][j] +
+                                      dp[1][i][j]) % p
+            dp[2][i + 1][j + M[i]] = (dp[2][i + 1][j + M[i]] + dp[i][j][0] +
+                                      dp[1][i][j]) % p
 
 print(dp)
