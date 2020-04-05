@@ -7,11 +7,14 @@ __author__ = "09x3086"
 N = [int(i) for i in input().split()]
 M = [int(i) for i in input().split()]
 
-a = 0
-for i in range(N[1] - 1):
-    if abs(M[i + 1] - N[0] / 2) - M[i] >= N[0] / 2:
-        a = a + abs(M[i + 1] - N[0])
-    else:
-        a = a + M[i + 1] - M[i]
+distanceList = []
 
-print(a)
+distance = 0
+for i in range(N[1]):
+    M.append((M[i] + N[0]))
+
+for i in range(len(M) - 1):
+    distanceList.append(M[i + 1] - M[i])
+
+print(distanceList)
+print(N[0] - max(distanceList))
