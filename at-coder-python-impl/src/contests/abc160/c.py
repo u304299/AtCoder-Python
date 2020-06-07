@@ -16,5 +16,4 @@ for i in range(N[1]):
 for i in range(len(M) - 1):
     distanceList.append(M[i + 1] - M[i])
 
-print(distanceList)
 print(N[0] - max(distanceList))
